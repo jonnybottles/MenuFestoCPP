@@ -103,6 +103,48 @@ int Menu::get_int(const string &prompt) {
     }
 }
 
+// Helper function to validate if a string can be converted to an int
+pair<bool, float> Menu::is_valid_float(const string &response) {
+    try {
+        // Try to convert the string to an float.
+        // If successful, return true and the float.
+        return {true, stof(response)};
+    } catch (invalid_argument &e) {
+        // If a std::invalid_argument exception is caught, return false and 0.
+        return {false, 0};
+    }
+}
+
+// Function to get an float input from the user.
+float Menu::get_float(const string &prompt) {
+    // Register signal handler for SIGINT (Ctrl+C)
+    signal(SIGINT, quit_program);
+
+    string response;
+    while (true) {
+        cout << prompt;
+        // Check to see if the input stream is still good.
+        if (!getline(cin, response)) {
+            // If we have reached EOF (e.g., Ctrl+D / Ctrl+C)
+            if (cin.eof()) {
+                quit_program(EOF);
+            } else {
+                // If there are any other input stream errors, quit the program.
+                quit_program(1);
+            }
+        } else {
+            pair<bool, float> parsed = is_valid_float(response);
+            if (parsed.first) {
+                // If the string can be parsed to an float, return the float
+                return parsed.second;
+            } else {
+                // If the string can't be parsed to an integer, print an error message
+                cout << "Please enter a valid float: \n";
+            }
+        }
+    }
+}
+
 // Function to handle program termination
 void Menu::quit_program(int signal) {
     if (signal == SIGINT || signal == EOF) {
