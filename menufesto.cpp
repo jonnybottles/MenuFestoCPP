@@ -103,7 +103,7 @@ int Menu::get_int(const string &prompt) {
     }
 }
 
-// Helper function to validate if a string can be converted to an int
+// Helper function to validate if a string can be converted to a float
 pair<bool, float> Menu::is_valid_float(const string &response) {
     try {
         // Try to convert the string to an float.

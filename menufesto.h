@@ -25,7 +25,7 @@ class Menu {
     // Get an integer from the user.
     int get_int(const string &prompt);
 
-    // Get an integer from the user.
+    // Get a float from the user.
     float get_float(const string &prompt);
 
     // Static function to handle program quit.
@@ -38,7 +38,7 @@ class Menu {
     // Helper function to validate integer input.
     pair<bool, int> is_valid_int(const string &response);
 
-    // Helper function to validate integer input.
+    // Helper function to validate float input.
     pair<bool, float> is_valid_float(const string &response);
 };
 
