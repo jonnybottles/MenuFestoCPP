@@ -1,6 +1,6 @@
-# MenufestoCPP
+# Menufesto CPP
 
-MenuFesto is a limited C++ menu library that has a clear, defined purpose (much like a manifesto) and set of features to provide for creating and managing menus.
+MenuFesto CPP is a limited C++ menu library that has a clear, defined purpose (much like a manifesto) and set of features to provide for creating and managing menus.
 
 ## Files
 
